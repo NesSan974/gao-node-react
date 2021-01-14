@@ -1,0 +1,3 @@
+[submodule "client"]
+	path = client
+	url = git://github.com/NesSan974/gao-node-react/client.git
