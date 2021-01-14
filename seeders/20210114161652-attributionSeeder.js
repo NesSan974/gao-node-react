@@ -19,6 +19,7 @@ module.exports = {
       idOrdinateur: Math.floor(Math.random() * 3) + 1,
       idClient: Math.floor(Math.random() * 3) + 1,
       Horraire: Math.floor( Math.random() * (19 - 8) + 8),
+      date: '2021-01-' +  Math.floor ( Math.random() * 2 + 14 )
     }], {});
 
 

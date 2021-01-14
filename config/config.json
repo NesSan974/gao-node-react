@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "gao",
+    "password": null,
+    "database": "gao_node",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "gao",
+    "password": null,
+    "database": "gao_node",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "gao",
+    "password": null,
+    "database": "gao_node",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}

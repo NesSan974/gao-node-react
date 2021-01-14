@@ -46,6 +46,7 @@ class Home extends React.Component {
 
         this.getOrd()
         this.getClients()
+       
 
     }
 
@@ -56,7 +57,7 @@ class Home extends React.Component {
         // Axios.post('http://localhost:8080/api/ordinateur/show', { 'date': this.state.date }).then(({ data }) => {
         //     this.setState({ ordinateurs: data.data })
         // })
-        Axios.get('http://localhost:8080/api/ordinateurs').then(({ data }) => {
+        Axios.post('http://localhost:8080/api/ordinateurs', { 'date': this.state.date }).then(({ data }) => {
             this.setState({ ordinateurs: data })
         })
     }
@@ -87,8 +88,8 @@ class Home extends React.Component {
         })
 
 
-        Axios.post('http://localhost:8080/api/ordinateur/show', { 'date': event.target.value }).then(({ data }) => {
-            this.setState({ ordinateurs: data.data })
+        Axios.post('http://localhost:8080/api/ordinateurs', { 'date': event.target.value }).then(({ data }) => {
+            this.setState({ ordinateurs: data })
             
 
 

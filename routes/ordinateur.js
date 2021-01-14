@@ -11,7 +11,7 @@ module.exports = app => {
   // Retrieve all Ordinateurs
   // router.get("/", ordinateur.findAll);
 
-  router.get("/", ordinateur.withAttribution);
+  router.post("/", ordinateur.withAttribution);
 
   // Retrieve a single Ordinateur with id
   router.get("/:id", ordinateur.findOne);

@@ -5,10 +5,10 @@ module.exports = app => {
 
   //--- ATTRIBUTIONS
 
-  // Create a new Ordinateur
+  // Create a new Attribution
   router.post("/add", attribution.create);
 
-  // Retrieve all Ordinateurs
+  // Retrieve all Attribution
   // router.get("/", ordinateur.findAll);
 
   router.get("/", attribution.findAll);
@@ -16,13 +16,13 @@ module.exports = app => {
 
   router.get("/test", attribution.test);
 
-  // Retrieve a single Ordinateur with id
+  // Retrieve a single Attribution with id
   router.get("/:id", attribution.findOne);
 
 
 
 
-  // Delete an Ordinateur with id
+  // Delete an Attribution with id
   router.delete("/:id", attribution.delete);
 
 

@@ -12,13 +12,12 @@ exports.test = (req, res) => {
 // Create and Save a new Tutorial
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.ordinateur_id && !req.body.client_id && !req.body.horraire) { //date
+  if (!req.body.ordinateur_id && !req.body.client_id && !req.body.horraire && !req.body.date) { //date
     res.status(400).send({
       message: "One or more field are empty"
     });
     return;
   }
-
 
 
   // Create
@@ -36,22 +35,29 @@ exports.create = (req, res) => {
   })
 
   const r = {
+
     idOrdinateur: req.body.ordinateur_id,
     idClient: req.body.client_id,
     horraire: req.body.horraire,
-    //date : req.body.date
-
+    date: req.body.date
   };
 
   // Save in the database
 
-  Attribution.create(r)
+  Attribution.create({
+
+    idOrdinateur: req.body.ordinateur_id,
+    idClient: req.body.client_id,
+    horraire: req.body.horraire,
+    date: req.body.date
+  })
     .then(data => {
       res.send({
         id: data.id,
         idOrdinateur: data.idOrdinateur,
         idClient: data.idClient,
         horraire: data.horraire,
+        date : data.date,
 
         client: client
       });

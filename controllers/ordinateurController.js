@@ -20,10 +20,24 @@ exports.create = (req, res) => {
     nom: req.body.newOrd
   };
 
-  // Save Tutorial in the database
+  // Save in the database
   Ordinateur.create(ord)
     .then(data => {
-      res.send(data);
+      res.send({
+        id : data.id,
+        nom : data.nom,
+
+        Attributions :
+        
+        db.Attribution.findAll({
+          where : {
+            idOrdinateur : data.id
+          }
+        }),
+      });
+
+
+
     })
     .catch(err => {
       res.status(500).send({
@@ -59,7 +73,7 @@ exports.findOne = (req, res) => {
     })
 };
 
-// Update a Tutorial by the id in the request
+// Update  by the id in the request
 exports.show = (req, res) => {
   // Validate request
   if (!req.body.date) {
@@ -82,7 +96,7 @@ exports.show = (req, res) => {
 
 };
 
-// Delete a Tutorial with the specified id in the request
+// Delete  with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -113,7 +127,8 @@ exports.withAttribution = (req, res) => {
 
   // Validate request
 
-  // if (!req.body.newOrd) {
+
+  // if (!req.body.date) {
   //   res.status(400).send({
   //     message: "Content can not be empty!"
   //   });
@@ -121,17 +136,21 @@ exports.withAttribution = (req, res) => {
   // }
 
 
+  const date = req.body.date
+
+
+
   Ordinateur.findAll({
     attributes: ['id', 'nom'],
     include: [
       {
         model: db.Attribution,
-        // attributes: ['id', 'date', 'hours'],
+        attributes: ['id', 'date', 'hours'],
         attributes: ['id', 'horraire'],
-        // required: false,
-        // where: {
-        //   date: currentDate
-        // },
+        required: false,
+        where: {
+          date: date
+        },
         include: [{
           model: db.Client,
           attributes: ['id', 'nom', 'prenom'],

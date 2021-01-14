@@ -55,7 +55,7 @@ class AddOrdinateur extends React.Component {
 
     addNewOrd() {
         Axios.post('http://localhost:8080/api/ordinateurs/add', { 'newOrd': this.state.value }).then(({ data }) => {
-            this.props.onUpdate(data.data)
+            this.props.onUpdate(data)
         })
         
         this.handleClose()

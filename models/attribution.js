@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
   Attribution.init({
     idOrdinateur: DataTypes.INTEGER,
     idClient: DataTypes.INTEGER,
-    horraire: DataTypes.INTEGER
+    horraire: DataTypes.INTEGER,
+    date:DataTypes.DATEONLY
   }, {
     sequelize,
     modelName: 'Attribution',

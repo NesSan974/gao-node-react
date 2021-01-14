@@ -55,15 +55,13 @@ class AddAttribution extends React.Component {
     addAttribution() {
         Axios
             .post("http://localhost:8080/api/attributions/add", {
-                //date: this.props.date,
+                date: this.props.date,
                 ordinateur_id: this.props.ordinateur.id,
                 client_id: this.state.value.id,
                 horraire: this.props.horraire.h
-
             })
             .then(({ data }) => {
                 this.props.updateAtt(data)
-                // console.log(data)
             })
 
         this.handleClose()

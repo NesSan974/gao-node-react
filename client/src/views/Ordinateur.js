@@ -168,7 +168,7 @@ class Ordinateur extends React.Component {
 
                                             <div>
 
-                                                <AddAttribution updateAtt={this.updateAtt} clients={this.props.clients} horraire={heure} ordinateur={this.state.ordinateur} date={this.props.date.value} />
+                                                <AddAttribution updateAtt={this.updateAtt} clients={this.props.clients} horraire={heure} ordinateur={this.state.ordinateur} date={this.props.date} />
 
                                             </div>
                                     }
